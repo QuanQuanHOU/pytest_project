@@ -1,0 +1,8 @@
+platformName: Android
+newCommonTimeout: 36000
+skipServerInstallation: True
+automationName: UiAutomator2
+serverPort: 4723
+systemPort: 8200
+appPackage: com.your.app.package
+appActivity: com.your.app.activity
