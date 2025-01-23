@@ -51,8 +51,43 @@ pytest_project/
 
 ## 5.生成测试报告
 
+安装allure，解压cli并配置环境变量https://github.com/allure-framework/allure2/releases
+
+生成静态报告并查看
+
+```sh
+allure generate ./report/allure -o ./report/html --clean
+allure open ./report/html
+```
+
 运行测试用例后，使用Allure生成测试报告：
 
 ```sh
 allure serve report/allure
+```
+
+每次运行测试用例生成allure结果都清除之前的结果
+
+```sh
+pytest --alluredir=./report/allure --clean-alluredir
+allure generate ./report/allure -o ./report/html --clean
+```
+
+测试运行完后生成测试报告并且保留历史数据的脚本
+
+```sh
+#!/bin/bash
+# 清理旧的历史数据，保留最新的20份
+cd allure-results/history
+ls -t | tail -n +21 | xargs rm -rf
+cd -
+
+# 复制历史数据到新的结果目录
+cp -r allure-report/history allure-results/history
+
+# 运行测试并生成结果
+pytest --alluredir=./allure-results
+
+# 生成新的报告
+allure generate ./allure-results -o ./allure-report --clean
 ```
