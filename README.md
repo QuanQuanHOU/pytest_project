@@ -31,18 +31,17 @@ pytest_project/
 ├── app/
 │   └── your_app.apk  # 被测试的APP
 ├── common/
-│   ├── base_driver.py  # 初始化driver
 │   ├── base_page.py    # 封装通用操作
 │   └── utils.py        # 通用工具函数
 ├── config/
 │   └── config.yml      # 配置文件
-├── conftest.py         # pytest配置文件
+├── conftest.py         # pytest 全局夹子
 ├── pytest.ini          # pytest配置文件
 ├── requirements.txt    # 依赖文件
 ├── run.py              # 运行测试用例的入口
 └── testcase/
-    ├── test_login.py   # 登录测试用例
-    └── test_home.py    # 首页测试用例
+    ├── test_suites1.py   # 测试套件1
+    └── test_suites2.py    # 测试套件2
 ```
 
 ## 4.运行测试用例
